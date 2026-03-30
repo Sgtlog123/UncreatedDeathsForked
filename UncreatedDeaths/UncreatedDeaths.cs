@@ -13,7 +13,7 @@ namespace UncreatedDeaths
 {
     public class Deaths : RocketPlugin<Config>
     {
-        public const string translationDescription = "Translations | Key, space, value with unlimited spaces. Formatting: Dead player name, Murderer name when applicable, Limb, Gun name when applicable, distance when applicable. /deathreload to reload";
+        public const string translationDescription = "Translations | Key, space, value with unlimited spaces. Formatting: Dead player name, Murderer name when applicable, Limb, Gun name when applicable, distance when applicable. /deathreload to reload, use <color></color> to color";
         public const string limbsDescriptionTransl = "Translations | Key, space, value with unlimited spaces. Must match SDG.Unturned.ELimb enumerator list <LEFT|RIGHT>_<ARM|LEG|BACK|FOOT|FRONT|HAND>, SPINE, SKULL. ex. LEFT_ARM, RIGHT_FOOT";
         public string translationname { get { return System.IO.Directory.GetCurrentDirectory() + Configuration.Instance.RelativeConfigPathToRocketFolder + @"\translations.txt"; } }
         public string limbtranslationname { get { return System.IO.Directory.GetCurrentDirectory() + Configuration.Instance.RelativeConfigPathToRocketFolder + @"\limbs_translations.txt"; } }
@@ -183,7 +183,7 @@ namespace UncreatedDeaths
                     string message = translations[heldGunID.ToString()];
                     try
                     {
-                        ChatManager.say(String.Format(message, player.DisplayName, MurdererName, limb.GetLimbName(), HeldGun, Math.Round(distance).ToString() + "m"), Configuration.Instance.ColorOfTheTextToSendWhenTextIsSentAfterAPlayerDiesOrGetsShotToDeath.Hex());
+                        ChatManager.say(String.Format(message, player.DisplayName, MurdererName, limb.GetLimbName(), HeldGun, Math.Round(distance).ToString() + "m"), Configuration.Instance.ColorOfTheTextToSendWhenTextIsSentAfterAPlayerDiesOrGetsShotToDeath.Hex(), true);
                             LogDeath(String.Format(message, player.DisplayName, MurdererName, limb.GetLimbName(), HeldGun, Math.Round(distance).ToString() + "m"));
                         
                     }
@@ -197,7 +197,7 @@ namespace UncreatedDeaths
                             message = translations[key];
                             try
                             {
-                                ChatManager.say(String.Format(message, player.DisplayName, MurdererName, limb.GetLimbName(), HeldGun, Math.Round(distance).ToString() + "m"), Configuration.Instance.ColorOfTheTextToSendWhenTextIsSentAfterAPlayerDiesOrGetsShotToDeath.Hex());
+                                ChatManager.say(String.Format(message, player.DisplayName, MurdererName, limb.GetLimbName(), HeldGun, Math.Round(distance).ToString() + "m"), Configuration.Instance.ColorOfTheTextToSendWhenTextIsSentAfterAPlayerDiesOrGetsShotToDeath.Hex(), true);
                                     LogDeath(String.Format(message, player.DisplayName, MurdererName, limb.GetLimbName(), HeldGun, Math.Round(distance).ToString() + "m"));
                             }
                             catch
@@ -206,12 +206,12 @@ namespace UncreatedDeaths
                                 if (DefTranslations.ContainsKey(key))
                                 {
                                     message = DefTranslations[key];
-                                    ChatManager.say(String.Format(message, player.DisplayName, MurdererName, limb.GetLimbName(), HeldGun, Math.Round(distance).ToString() + "m"), Configuration.Instance.ColorOfTheTextToSendWhenTextIsSentAfterAPlayerDiesOrGetsShotToDeath.Hex());
+                                    ChatManager.say(String.Format(message, player.DisplayName, MurdererName, limb.GetLimbName(), HeldGun, Math.Round(distance).ToString() + "m"), Configuration.Instance.ColorOfTheTextToSendWhenTextIsSentAfterAPlayerDiesOrGetsShotToDeath.Hex(), true);
                                         LogDeath(string.Format(String.Format(message, player.DisplayName, MurdererName, limb.GetLimbName(), HeldGun, Math.Round(distance).ToString() + "m")));
                                 }
                                 else
                                 {
-                                    ChatManager.say(key + $" ({player.DisplayName}, {murderer.m_SteamID}, {limb}, {HeldGun}, {distance.ToString() + "m"})", Configuration.Instance.ColorOfTheTextToSendWhenTextIsSentAfterAPlayerDiesOrGetsShotToDeath.Hex());
+                                    ChatManager.say(key + $" ({player.DisplayName}, {murderer.m_SteamID}, {limb}, {HeldGun}, {distance.ToString() + "m"})", Configuration.Instance.ColorOfTheTextToSendWhenTextIsSentAfterAPlayerDiesOrGetsShotToDeath.Hex(), true);
                                         LogDeath(key + $" ({player.DisplayName}, {murderer.m_SteamID}, {limb}, {HeldGun}, {distance.ToString() + "m"})");
                                 }
                             }
@@ -227,7 +227,7 @@ namespace UncreatedDeaths
                         string message = translations[key];
                         try
                         {
-                            ChatManager.say(String.Format(message, player.DisplayName, MurdererName, limb.GetLimbName(), HeldGun, Math.Round(distance).ToString() + "m"), Configuration.Instance.ColorOfTheTextToSendWhenTextIsSentAfterAPlayerDiesOrGetsShotToDeath.Hex());
+                            ChatManager.say(String.Format(message, player.DisplayName, MurdererName, limb.GetLimbName(), HeldGun, Math.Round(distance).ToString() + "m"), Configuration.Instance.ColorOfTheTextToSendWhenTextIsSentAfterAPlayerDiesOrGetsShotToDeath.Hex(), true);
                                 LogDeath(String.Format(message, player.DisplayName, MurdererName, limb.GetLimbName(), HeldGun, Math.Round(distance).ToString() + "m"));
                         } 
                         catch
@@ -236,12 +236,12 @@ namespace UncreatedDeaths
                             if (DefTranslations.ContainsKey(key))
                             {
                                 message = DefTranslations[key];
-                                ChatManager.say(String.Format(message, player.DisplayName, MurdererName, limb.GetLimbName(), HeldGun, Math.Round(distance).ToString() + "m"), Configuration.Instance.ColorOfTheTextToSendWhenTextIsSentAfterAPlayerDiesOrGetsShotToDeath.Hex());
+                                ChatManager.say(String.Format(message, player.DisplayName, MurdererName, limb.GetLimbName(), HeldGun, Math.Round(distance).ToString() + "m"), Configuration.Instance.ColorOfTheTextToSendWhenTextIsSentAfterAPlayerDiesOrGetsShotToDeath.Hex(), true);
                                     LogDeath(String.Format(message, player.DisplayName, MurdererName, limb.GetLimbName(), HeldGun, Math.Round(distance).ToString() + "m"));
                             }
                             else
                             {
-                                ChatManager.say(key + $" ({player.DisplayName}, {murderer.m_SteamID}, {limb}, {HeldGun}, {distance.ToString() + "m"})", Configuration.Instance.ColorOfTheTextToSendWhenTextIsSentAfterAPlayerDiesOrGetsShotToDeath.Hex());
+                                ChatManager.say(key + $" ({player.DisplayName}, {murderer.m_SteamID}, {limb}, {HeldGun}, {distance.ToString() + "m"})", Configuration.Instance.ColorOfTheTextToSendWhenTextIsSentAfterAPlayerDiesOrGetsShotToDeath.Hex(), true);
                                     LogDeath(key + $" ({player.DisplayName}, {murderer.m_SteamID}, {limb}, {HeldGun}, {distance.ToString() + "m"})");
                             }
                         }
@@ -261,7 +261,7 @@ namespace UncreatedDeaths
                     string message = translations[key];
                     try
                     {
-                        ChatManager.say(string.Format(message, player.DisplayName, MurdererName, limb.GetLimbName(), HeldGun, Math.Round(distance).ToString() + "m"), Configuration.Instance.ColorOfTheTextToSendWhenTextIsSentAfterAPlayerDiesOrGetsShotToDeath.Hex());
+                        ChatManager.say(string.Format(message, player.DisplayName, MurdererName, limb.GetLimbName(), HeldGun, Math.Round(distance).ToString() + "m"), Configuration.Instance.ColorOfTheTextToSendWhenTextIsSentAfterAPlayerDiesOrGetsShotToDeath.Hex(), true);
                             LogDeath(string.Format(message, player.DisplayName, MurdererName, limb.GetLimbName(), HeldGun, Math.Round(distance).ToString() + "m"));
                     } catch
                     {
@@ -269,12 +269,12 @@ namespace UncreatedDeaths
                         if (DefTranslations.ContainsKey(key))
                         {
                             message = DefTranslations[key];
-                            ChatManager.say(string.Format(message, player.DisplayName, MurdererName, limb.GetLimbName(), HeldGun, Math.Round(distance).ToString() + "m"), Configuration.Instance.ColorOfTheTextToSendWhenTextIsSentAfterAPlayerDiesOrGetsShotToDeath.Hex());
+                            ChatManager.say(string.Format(message, player.DisplayName, MurdererName, limb.GetLimbName(), HeldGun, Math.Round(distance).ToString() + "m"), Configuration.Instance.ColorOfTheTextToSendWhenTextIsSentAfterAPlayerDiesOrGetsShotToDeath.Hex(), true);
                                 LogDeath(string.Format(message, player.DisplayName, MurdererName, limb.GetLimbName(), HeldGun, Math.Round(distance).ToString() + "m"));
                         }
                         else
                         {
-                            ChatManager.say(key + $" ({player.DisplayName}, {murderer.m_SteamID}, {limb}, {HeldGun}, {Math.Round(distance).ToString() + "m"})", Configuration.Instance.ColorOfTheTextToSendWhenTextIsSentAfterAPlayerDiesOrGetsShotToDeath.Hex());
+                            ChatManager.say(key + $" ({player.DisplayName}, {murderer.m_SteamID}, {limb}, {HeldGun}, {Math.Round(distance).ToString() + "m"})", Configuration.Instance.ColorOfTheTextToSendWhenTextIsSentAfterAPlayerDiesOrGetsShotToDeath.Hex(), true);
                             LogDeath(string.Format(key + $" ({player.DisplayName}, {murderer.m_SteamID}, {limb}, {HeldGun}, {Math.Round(distance).ToString() + "m"})", player.DisplayName, MurdererName, NiceLimbs[limb]));
                         }
                     }
@@ -283,12 +283,12 @@ namespace UncreatedDeaths
                     if(DefTranslations.ContainsKey(key))
                     {
                         string message = DefTranslations[key];
-                        ChatManager.say(string.Format(message, player.DisplayName, MurdererName, NiceLimbs[limb], HeldGun, Math.Round(distance).ToString() + "m"), Configuration.Instance.ColorOfTheTextToSendWhenTextIsSentAfterAPlayerDiesOrGetsShotToDeath.Hex());
+                        ChatManager.say(string.Format(message, player.DisplayName, MurdererName, NiceLimbs[limb], HeldGun, Math.Round(distance).ToString() + "m"), Configuration.Instance.ColorOfTheTextToSendWhenTextIsSentAfterAPlayerDiesOrGetsShotToDeath.Hex(), true);
                         LogDeath(string.Format(message, player.DisplayName, MurdererName, NiceLimbs[limb], HeldGun, Math.Round(distance).ToString() + "m"));
                     }
                     else
                     {
-                        ChatManager.say(key + $" ({player.DisplayName}, {murderer.m_SteamID}, {limb}, {HeldGun}, {Math.Round(distance).ToString() + "m"})", Configuration.Instance.ColorOfTheTextToSendWhenTextIsSentAfterAPlayerDiesOrGetsShotToDeath.Hex());
+                        ChatManager.say(key + $" ({player.DisplayName}, {murderer.m_SteamID}, {limb}, {HeldGun}, {Math.Round(distance).ToString() + "m"})", Configuration.Instance.ColorOfTheTextToSendWhenTextIsSentAfterAPlayerDiesOrGetsShotToDeath.Hex(), true);
                         LogDeath(string.Format(key + $" ({player.DisplayName}, {murderer.m_SteamID}, {limb}, {HeldGun}, {Math.Round(distance).ToString() + "m"})", player.DisplayName, MurdererName, NiceLimbs[limb]));
                     }
                 }

@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31019.35
+# Visual Studio Version 18
+VisualStudioVersion = 18.4.11620.152 stable
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UncreatedDeaths", "UncreatedDeaths\UncreatedDeaths.csproj", "{263AE1B3-628E-4F1C-9D95-0EC9EE728E30}"
 EndProject
-Project("{911E67C6-3D85-4FCE-B560-20A9C3E3FF48}") = "Unturned", "..\..\..\..\..\..\..\SteamCMD\unturned\Unturned.exe", "{462810BB-DB01-46A9-8366-E1F5A89052AE}"
+Project("{911E67C6-3D85-4FCE-B560-20A9C3E3FF48}") = "Unturned", "..\..\..\..\..\SteamCMD\unturned\Unturned.exe", "{462810BB-DB01-46A9-8366-E1F5A89052AE}"
 	ProjectSection(DebuggerProjectSystem) = preProject
 		PortSupplier = 00000000-0000-0000-0000-000000000000
 		Executable = C:\SteamCMD\unturned\Unturned.exe
@@ -28,8 +28,8 @@ Global
 		Release|x64 = Release|x64
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{263AE1B3-628E-4F1C-9D95-0EC9EE728E30}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{263AE1B3-628E-4F1C-9D95-0EC9EE728E30}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{263AE1B3-628E-4F1C-9D95-0EC9EE728E30}.Debug|Any CPU.ActiveCfg = Release|Any CPU
+		{263AE1B3-628E-4F1C-9D95-0EC9EE728E30}.Debug|Any CPU.Build.0 = Release|Any CPU
 		{263AE1B3-628E-4F1C-9D95-0EC9EE728E30}.Debug|x64.ActiveCfg = Debug|Any CPU
 		{263AE1B3-628E-4F1C-9D95-0EC9EE728E30}.Debug|x64.Build.0 = Debug|Any CPU
 		{263AE1B3-628E-4F1C-9D95-0EC9EE728E30}.Release|Any CPU.ActiveCfg = Release|Any CPU
